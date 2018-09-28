@@ -1,0 +1,47 @@
+@startuml confidentialité
+package individuals{
+    class individual{
+        name:String
+        surname:String
+    }
+}
+package competences {
+    class competence{
+        name:String
+    }
+    enum level{
+        UNKNOWN
+        BYNAME
+        SEEN
+        TRIED
+        PROJECT
+        MISSION
+        GREAT
+    }
+    class skill {
+
+    }
+    class wish{
+        asTutor:boolean
+    }
+    enum Format{
+        MAGISTRAL
+        SMALL_GROUP
+        ONE_ON_ONE
+    }
+}
+
+competence "*" --> "*" individual
+(competence, individual) .. skill
+
+competence "*" --> "*" individual
+(competence, individual) .. wish
+
+note "test" as timestamp
+
+Format "1" <-left- wish
+level "1" <-right- skill
+package authent{
+}
+hide authent
+@enduml
