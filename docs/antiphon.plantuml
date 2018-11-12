@@ -1,15 +1,15 @@
 @startuml confidentialité
 package individuals{
-    class individual{
+    class Individual{
         name:String
         surname:String
     }
 }
-package competences {
-    class competence{
+package skills {
+    class Skill{
         name:String
     }
-    enum level{
+    enum Level{
         UNKNOWN
         BYNAME
         SEEN
@@ -18,10 +18,7 @@ package competences {
         MISSION
         GREAT
     }
-    class skill {
-
-    }
-    class wish{
+    class Wish{
         asTutor:boolean
     }
     enum Format{
@@ -31,17 +28,18 @@ package competences {
     }
 }
 
-competence "*" --> "*" individual
-(competence, individual) .. skill
+Skill "*" --> "*" Individual
+(Skill, Individual) .. Level
 
-competence "*" --> "*" individual
-(competence, individual) .. wish
+Skill "*" --> "*" Individual
+(Skill, Individual) .. Wish
 
-note "test" as timestamp
-
-Format "1" <-left- wish
-level "1" <-right- skill
+Format "1" <-right- Wish
 package authent{
+    class Credentials{
+        email: String
+        password: String
+    }
 }
-hide authent
+Credentials -right-> Individual: profile
 @enduml
