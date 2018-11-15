@@ -12,7 +12,7 @@ describe('StateEffects', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        StoreModule
+        StoreModule.forRoot({}),
       ],
       providers: [
         StateEffects,

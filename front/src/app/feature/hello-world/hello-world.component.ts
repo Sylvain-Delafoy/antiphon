@@ -9,6 +9,7 @@ import {ActionLoadingOff, ActionLoadingOn} from '../../core/store/actions/state.
   styleUrls: ['./hello-world.component.sass']
 })
 export class HelloWorldComponent implements OnInit {
+  title = 'antiphon-app';
 
   constructor(private store: Store<SelectorState>) { }
 
